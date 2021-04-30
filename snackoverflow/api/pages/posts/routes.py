@@ -6,3 +6,4 @@ posts = Blueprint('posts', __name__)
 def postspage():
     return 'posts'
 
+
