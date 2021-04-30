@@ -1,3 +1,4 @@
+import SidePanel from "../components/SidePanel/SidePanel"
 import TopicsBoard from "../components/TopicsBoard/TopicsBoard"
 
 const HomePage = () => {
@@ -7,7 +8,7 @@ const HomePage = () => {
         
             <TopicsBoard/>
 
-            
+            <SidePanel/>
         </div>
 
     )
