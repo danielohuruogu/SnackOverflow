@@ -14,7 +14,7 @@ const SidePanel = () => {
 
             <h4>Recent Posts</h4>
             <ul>
-                <li>Petition to stop Toblerone chocolates from getting smaller every year</li>
+                <li>Petition to stop gaps in Toblerone chocolates from getting wider every year</li>
                 <li>KitKat is better than Twix, change my mind</li>
                 <li>Auctioning super rare editions of Ferrero Roche</li>
             </ul>
