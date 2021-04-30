@@ -1,21 +1,22 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import MenuItems from './MenuItems'
+import TopTen from './TopTen'
 
 const Navbar = () => {
     return (
         <div>
             <ul>
-                {MenuItems.map((item, index) => {
-                    return (
-                        <li key={index}>
-                            <a className={item.cName} href={item.url}>
-                                {item.title}
-                            </a>
-                        </li>
-                    )
 
-                })}
+
+                <li>
+                    <Link to='/' className=''>Home</Link>
+                </li>
+                <li>
+                    {/* {<MenuItems />} */}
+                </li>
             </ul>
+
         </div>
     )
 }

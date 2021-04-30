@@ -1,6 +1,5 @@
 import React from 'react'
 import TopicsBoardItem from "../TopicsBoardItem/TopicsBoardItem";
-import Header from '../Header/Header'
 
 const TopicsBoard = () => {
     return (
