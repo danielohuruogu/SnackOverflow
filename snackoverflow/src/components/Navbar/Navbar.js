@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import MenuItems from './MenuItems'
-import TopTen from './TopTen'
+import SnacksByBrandDropdown from './SnacksByBrandDropdown'
+import SnacksByCountryDropdown from './SnacksByCountryDropdown'
+import TopTenDropdown from './TopTenDropdown'
+
 
 const Navbar = () => {
     return (
@@ -13,8 +15,21 @@ const Navbar = () => {
                     <Link to='/' className=''>Home</Link>
                 </li>
                 <li>
-                    {/* {<MenuItems />} */}
+                    <TopTenDropdown />
                 </li>
+                <li>
+                    <SnacksByCountryDropdown />
+                </li>
+                <li>
+                    <SnacksByBrandDropdown />
+                </li>
+                <li>
+                    <Link to='/register' className=''>Register</Link>
+                </li>
+                <li>
+                    <Link to='/login' className=''>Login</Link>
+                </li>
+
             </ul>
 
         </div>

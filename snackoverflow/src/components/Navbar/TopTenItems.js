@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TopTen = [
+const TopTenItems = [
     {
         title: 'Crisps',
         url: '#',
@@ -24,4 +24,4 @@ const TopTen = [
 
 ]
 
-export default TopTen
+export default TopTenItems
