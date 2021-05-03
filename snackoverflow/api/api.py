@@ -81,10 +81,10 @@ def test():
     # name = db.StringField()
 
 
-@app.route('/going')
-def test():
-    data = col.find_one()
-    col.insert_one({'name':'test'})
-    print(data)
-    # new = User()
-    return 'something'
+# @app.route('/going')
+# def test():
+#     data = col.find_one()
+#     col.insert_one({'name':'test'})
+#     print(data)
+#     # new = User()
+#     return 'something'

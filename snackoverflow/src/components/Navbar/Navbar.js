@@ -52,7 +52,7 @@ const Navbar = () => {
                 <li className={style.navitem}
                 onMouseEnter={() => {onMouseEnter(1)}}
                 onMouseLeave={() => {onMouseLeave(1)}}>
-                    Top 10{dropdown1 && <TopTenDropdown />}
+                    Top 10 of{dropdown1 && <TopTenDropdown />}
                 </li>
                 <li className={style.navitem}
                 onMouseEnter={() => {onMouseEnter(2)}}
