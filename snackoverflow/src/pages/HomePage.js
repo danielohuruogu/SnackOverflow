@@ -1,3 +1,4 @@
+import Footer from "../components/Footer/Footer"
 import SidePanel from "../components/SidePanel/SidePanel"
 import TopicsBoard from "../components/TopicsBoard/TopicsBoard"
 import style from "../styles/pagesStyles/homepage.module.scss"
@@ -9,8 +10,8 @@ const HomePage = () => {
                 <p>Welcome to Snack Overflow! Home of snack enthusiasts to discuss all things snacks related.</p>
             </div>
             <TopicsBoard/>
-            <SidePanel/>
 
+            <SidePanel/>
 
         </div>
 

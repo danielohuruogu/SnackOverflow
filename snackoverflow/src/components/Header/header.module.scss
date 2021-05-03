@@ -1,0 +1,59 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+.header {
+    // background-color: $tea-green;
+    // font-size: 1em;
+        // width: 75%;
+    // @include flex;
+    // @include flex;
+    .top {
+        @include flex($dir: row nowrap, $jc: start, $ai: center);
+        // align-items: start;
+        // width: 100%;
+        // flex: 0 0 100%;
+        .mysvg {
+            // align-self: start;
+            // justify-self: start;
+            // width: 5%;
+            // flex: 0 0 5%;
+        }
+        .mytitle {
+            // padding-left: 10px;
+            white-space: nowrap;
+
+            font-family: 'Rubik', sans-serif;
+            // align-self: start;
+            // justify-self: start;
+            // width: 95%;
+            // flex: 0 0 95%;
+        }
+    }
+
+
+    // div {
+    //     @include flex;
+    //     // flex: 0 0 100%;
+    //     width: 100%;
+    //     height: 40px;
+    //     svg {
+    //         // flex: 0 0 5%;
+    //         width: 5%;
+    //         // height: 10px;
+    //     }
+    //     div {
+    //         // flex: 0 0 95%;
+    //         width: 95%;
+    //         // max-height: 1px;
+    //         h1 {
+    //         // height: 100%;
+    //         // font-size: small;
+    //         height: 1vh;
+    //     }  
+    //     }
+
+    // }
+
+}

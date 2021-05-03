@@ -2,9 +2,10 @@
 @import "../../styles/mixins";
 
 .topicsboard {
+    // @include flex;
     background-color: green;
     flex: 0 0 65%;
-    height: 500px;
+    max-width: 400px;
     padding: 0px 10px 0px 10px; //top right bottom left
 
     // @include flex; 

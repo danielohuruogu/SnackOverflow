@@ -2,10 +2,12 @@
 @import "../../styles/mixins";
 
 .sidepanel {
-    background-color: $gold-metallic;
+    background-color: $columbia-blue;
     flex: 0 0 25%;
     padding: 0px 10px 0px 10px; //top right bottom left
-
+    border: 1px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px grey;
     ul {
         list-style: none; 
         text-align: start;

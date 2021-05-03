@@ -11,6 +11,8 @@
     display: flex;
     /* overflow: hidden; */
     /* flex-flow: column nowrap; */
+    // padding: 5px;
+
     &.clicked {
       
       display: none;
@@ -22,6 +24,7 @@
   }
   
   .dropdown-menu li {
+    
     background: lighten($color: $rich-black, $amount: 10%);
     
     color: white;
@@ -30,12 +33,16 @@
     /* flex-flow: column nowrap; */
     flex: 0 0 100%;
     overflow: hidden;
+    padding: 5px;
+    font-size: 80%;
 
+    // border-radius: 5px;
   }
   
   .dropdown-menu li:hover {
-    background: #5cabff;
-    // transition: 500ms;
+    background: lighten($color: $rich-black, $amount: 20%);
+    transition: 500ms;
+    // border-radius: 5px;
   }
   
 

@@ -3,10 +3,19 @@
 
 .home {
     background-color: $tea-green;
-    @include flex; 
+    @include flex($dir: row wrap, $jc: space-around, $ai: start);
+    // max-height: 600px;
+    // margin-top: 0;
+    // min-height: calc(100vh - 100px);
+    margin: 0px 5% 0px 5%;
+    padding: 0px 0px 78px 0px;
     .welcome {
         flex: 0 0 95%;
         padding: 0px 10px 0px 10px; //top right bottom left
+    }
+
+    .separator {
+        flex: 0 0 15%;
     }
     // .div {
     //     flex: 0 0 50%;

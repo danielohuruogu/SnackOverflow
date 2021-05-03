@@ -12,7 +12,7 @@
         list-style: none;
                     // flex: 0 0 500px;
         // width: 90%;
-        flex: 0 0 100%;
+        flex: 0 0 80%;
         @include flex;
         .navitem, .navlink{
 
@@ -23,9 +23,16 @@
             flex: 1;
             padding: 5px 10px 5px 10px;
             align-self: center;
+            border-radius: 5px;
+
             // @include flex;
             // flex-wrap: nowrap;
             // display: inline;
+        }
+
+        .navitem:hover {
+            background: lighten($color: $rich-black, $amount: 20);
+            transition: 500ms;
         }
     }
 

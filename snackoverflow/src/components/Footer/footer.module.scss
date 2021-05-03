@@ -1,0 +1,24 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.footer {
+    // @include flex($dir: row wrap, $jc: center, $ai: center);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: $rich-black;
+    // flex-shrink: 0;
+    // margin-top: 25vh;
+    height: 50px;
+    div {
+        // margin-left: 0;
+        // width: 100%;
+        text-align: center;
+        
+        color: white;
+        position: relative;
+        bottom: 0;
+        margin-top: auto;
+    }
+    
+}

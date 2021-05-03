@@ -7,7 +7,6 @@ const TopicsBoard = () => {
         <div className={style.topicsboard}>
             <h4>Topics</h4>
                 <TopicsBoardItem/>
-            <h4>Other topics</h4>
         </div>
     )
 }
