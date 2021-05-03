@@ -1,0 +1,10 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.topicsboard {
+    background-color: green;
+    flex: 0 0 46%;
+    padding: 0px 10px 0px 10px; //top right bottom left
+
+    // @include flex; 
+}

@@ -1,0 +1,68 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.dropdown-menu {
+    background: red;
+    width: 150px;
+    position: absolute;
+    /* top: 80px; */
+    list-style: none;
+    text-align: start;
+    display: flex;
+    /* overflow: hidden; */
+    /* flex-flow: column nowrap; */
+    &.clicked {
+      
+      display: none;
+      // transition: 1000ms;
+      color: silver;
+      /* display: flex;
+      flex-flow: column nowrap; */
+    }
+  }
+  
+  .dropdown-menu li {
+    background: lighten($color: $rich-black, $amount: 10%);
+    
+    color: white;
+    cursor: pointer;
+    /* display: flex; */
+    /* flex-flow: column nowrap; */
+    flex: 0 0 100%;
+    overflow: hidden;
+
+  }
+  
+  .dropdown-menu li:hover {
+    background: #5cabff;
+    // transition: 500ms;
+  }
+  
+
+  
+  .dropdown-link {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    padding: 16px;
+    /* display: flex;
+    flex-flow: column nowrap; */
+  }
+  
+  @media screen and (max-width: 960px) {
+    .fa-caret-down {
+      display: none;
+    }
+  }
+
+
+.navlink {
+
+    color: white;
+}
+
+.whitetext {
+  color: white;
+}

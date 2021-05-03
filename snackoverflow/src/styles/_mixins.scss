@@ -1,0 +1,7 @@
+
+@mixin flex($dir: row wrap, $jc: center, $ai: start) {
+    display: flex;
+    flex-flow: $dir; // flex-flow is shorthand for flex-direction and flex-wrap
+    justify-content: $jc;
+    align-items: $ai;
+}

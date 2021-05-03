@@ -1,8 +1,9 @@
 import React from 'react'
+import style from './sidepanel.module.scss'
 
 const SidePanel = () => {
     return (
-        <div>
+        <div className={style.sidepanel}>
             <h4>Trending Snacks</h4>
             <ul>
                 <li>Ferrero Roche</li>

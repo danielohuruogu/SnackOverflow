@@ -1,0 +1,15 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.sidepanel {
+    background-color: $gold-metallic;
+    flex: 0 0 46%;
+    padding: 0px 10px 0px 10px; //top right bottom left
+
+    ul {
+        list-style: none; 
+        text-align: start;
+    }
+        
+    // @include flex; 
+}

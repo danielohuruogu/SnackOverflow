@@ -4,4 +4,4 @@ topics = Blueprint('topics', __name__)
 
 @topics.route('/topics', methods=['GET'])
 def topicpage():
-    return 'testtopic'
+    return 'topics'

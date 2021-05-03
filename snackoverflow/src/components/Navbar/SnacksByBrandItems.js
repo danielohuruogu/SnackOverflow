@@ -3,22 +3,22 @@ import React from 'react'
 const SnacksByBrandItems = [
     {
         title: 'Pringles',
-        url: '#',
+        path: '/Pringles',
         cName: 'nav-links'
     },
     {
         title: 'Cheetos',
-        url: '#',
+        path: '/',
         cName: 'nav-links'
     },
     {
         title: 'Jaffa Cakes',
-        url: '#',
+        path: '#',
         cName: 'nav-links'
     },
     {
         title: 'Doritos',
-        url: '#',
+        path: '#',
         cName: 'nav-links'
     },
 

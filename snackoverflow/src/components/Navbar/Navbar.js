@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import SnacksByBrandDropdown from './SnacksByBrandDropdown'
 import SnacksByCountryDropdown from './SnacksByCountryDropdown'
 import TopTenDropdown from './TopTenDropdown'
+import style from './navbar.module.scss'
 
 const Navbar = () => {
     // const [click, setClick] = useState(false)
@@ -42,45 +43,32 @@ const Navbar = () => {
         }
     }
 
-
-
-
-
     return (
-        <div>
+        <div className={style.navbar}>
             <ul>
-
-                <li>
-                    <Link to='/' className=''>Home</Link>
+                <li className={style.navitem}>
+                    <Link to='/' className={style.navlink}>Home</Link>
                 </li>
-                <li className='nav-item'
+                <li className={style.navitem}
                 onMouseEnter={() => {onMouseEnter(1)}}
                 onMouseLeave={() => {onMouseLeave(1)}}>
-                    <button>
-                        Top 10
-                    </button>{dropdown1 && <TopTenDropdown />}
-                    
+                    Top 10{dropdown1 && <TopTenDropdown />}
                 </li>
-                <li className='nav-item'
+                <li className={style.navitem}
                 onMouseEnter={() => {onMouseEnter(2)}}
                 onMouseLeave={() => {onMouseLeave(2)}}>
-                    <button>
-                        Around the World
-                    </button>{dropdown2 && <SnacksByCountryDropdown />}
-                    
+                    Around the World {dropdown2 && <SnacksByCountryDropdown />}
                 </li>
-                <li className='nav-item'
+                <li className={style.navitem}
                 onMouseEnter={() => {onMouseEnter(3)}}
                 onMouseLeave={() => {onMouseLeave(3)}}>
-                    <button>
-                        Brands
-                    </button>{dropdown3 && <SnacksByBrandDropdown />}
+                    Brands {dropdown3 && <SnacksByBrandDropdown />}
                 </li>
-                <li>
-                    <Link to='/register' className=''>Register</Link>
+                <li className={style.navitem}>
+                    <Link to='/register' className={style.navlink}>Register</Link>
                 </li>
-                <li>
-                    <Link to='/login' className=''>Login</Link>
+                <li className={style.navitem}>
+                    <Link to='/login' className={style.navlink}>Login</Link>
                 </li>
 
             </ul>

@@ -1,0 +1,33 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.navbar {
+    @include flex;
+    background-color: $rich-black;
+            // align-items: start;
+            // justify-content: space-around;
+            
+    ul {
+        // background-color: pink;
+        list-style: none;
+                    // flex: 0 0 500px;
+        // width: 90%;
+        flex: 0 0 100%;
+        @include flex;
+        .navitem, .navlink{
+
+            // width: 10%;
+            color: white;
+            // background-color: cyan;
+            // width: 15%;
+            flex: 1;
+            padding: 5px 10px 5px 10px;
+            align-self: center;
+            // @include flex;
+            // flex-wrap: nowrap;
+            // display: inline;
+        }
+    }
+
+}
+

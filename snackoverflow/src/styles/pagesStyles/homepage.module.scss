@@ -1,0 +1,15 @@
+@import "../variables";
+@import "../mixins";
+
+.home {
+    background-color: $tea-green;
+    @include flex; 
+    .welcome {
+        flex: 0 0 95%;
+        padding: 0px 10px 0px 10px; //top right bottom left
+    }
+    // .div {
+    //     flex: 0 0 50%;
+    //     background-color: grey;
+    // }
+}
