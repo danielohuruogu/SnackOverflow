@@ -17,11 +17,13 @@ from flask_pymongo import PyMongo
 
 # database connection    client = pymongo.MongoClient("mongodb+srv://tim:<password>@cluster0.ieiow.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 # db = client.test
-app.config["MONGO_URI"] = 'mongodb://tim:TimMongoPw@cluster0.ieiow.mongodb.net/SnackOverflowDb?retryWrites=true&w=majority' # removed +srv
+app.config["MONGO_URI"] = 'mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb' # removed +srv
+
+# 'mongodb://tim:TimMongoPw@cluster0.ieiow.mongodb.net/SnackOverflowDb?retryWrites=true&w=majority'
 client = PyMongo(app)
-print(dir(client))
+# print(dir(client))
 db = client.db
-print(dir(db))
+# print(dir(db))
 # db = client.SnackOverflowDb
 # db = client.db.SnackOverflowDb
 
@@ -30,15 +32,16 @@ print(dir(db))
 # db.init_app(app)
 # mongo_client.init_app(app)
 
-@app.route('/going')
+@app.route('/')
 def test():
     print('Test insert')
-    # print(db.list_collection)
+    print(db.list_collection)
     # print(dir(db))
-    # db.insert_one({'name':'test'})
+    try:
+        db.insert_one({'name':'test'})
+    except:
+        print("didn't work")
     print('done')
-    return 'going'
-    # helper function to check if user is logged in
-        # do something
+    return 'tried to access database'
 
 
