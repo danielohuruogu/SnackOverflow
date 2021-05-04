@@ -1,4 +1,3 @@
-import Footer from "../components/Footer/Footer"
 import SidePanel from "../components/SidePanel/SidePanel"
 import TopicsBoard from "../components/TopicsBoard/TopicsBoard"
 import style from "../styles/pagesStyles/homepage.module.scss"
