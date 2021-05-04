@@ -4,7 +4,6 @@ import datetime
 from mongoengine import Document, ListField, StringField, DateTimeField, IntField, EmailField
 
 class Topic(mongo.Document):
-    # id = StringField()
     title = StringField(required=True)
     date_created = DateTimeField(default=datetime.datetime.utcnow)
     posts_id = ListField(IntField())
@@ -12,7 +11,6 @@ class Topic(mongo.Document):
     meta = {'collection': 'topics'}
 
 class Comment(mongo.Document):
-    # id = StringField()
     text = StringField(required=True)
     user_id = IntField(required=True)
     popularity = IntField()
@@ -28,7 +26,6 @@ class Post(mongo.Document):
     meta = {'collection': 'posts'}
 
 class User(mongo.Document):
-    # id = StringField()
     username = StringField(required=True)
     password = StringField(required=True)
     email = EmailField(required=True)
