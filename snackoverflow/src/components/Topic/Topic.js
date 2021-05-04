@@ -6,6 +6,8 @@ const Topic = () => {
     console.log('hello');
     const { topic } = useParams();
 
+
+
     return (
         
         <div className={style.topic}>
@@ -14,6 +16,9 @@ const Topic = () => {
                 
                 <p>topic</p>
                 <p>{topic}</p>
+                
+
+
                 
             {/* </div> */}
         </div>
