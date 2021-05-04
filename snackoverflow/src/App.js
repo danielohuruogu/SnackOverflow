@@ -11,12 +11,12 @@ function App() {
 
   return (
     <div className={style.App}>
-      {/* <Header /> */}
+      <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/topics" component={TopicsPage} />
       </Switch>
-      {/* <Footer /> */}
+      <Footer />
 
     </div>
   );

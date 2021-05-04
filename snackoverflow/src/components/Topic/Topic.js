@@ -1,19 +1,19 @@
 import React from 'react'
-import style from './crisps.module.scss'
+import style from './topic.module.scss'
 import { Link, useParams } from "react-router-dom"
 
-const Crisps = () => {
+const Topic = () => {
     console.log('hello');
-    const { crisps } = useParams();
+    const { topic } = useParams();
 
     return (
         
-        <div className={style.crisps}>
+        <div className={style.topic}>
             {/* <div> */}
 
                 
-                <p>crisps</p>
-                <p>{crisps}</p>
+                <p>topic</p>
+                <p>{topic}</p>
                 
             {/* </div> */}
         </div>
@@ -21,4 +21,4 @@ const Crisps = () => {
     )
 }
 
-export default Crisps;
+export default Topic;

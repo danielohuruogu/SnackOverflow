@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useRouteMatch, Switch, Route } from 'react-router-dom'
-import Crisps from '../components/Crisps/Crisps';
+import Topic from '../components/Topic/Topic';
 // import { useRouteMatch } from 'react-router'
 import style from "../styles/pagesStyles/topicspage.module.scss"
 
@@ -19,18 +19,20 @@ const TopicsPage = () => {
                 <li>Cakes</li>
                 <li>Candies</li>
                 <li>Chewing Gums</li>
-                <li>Chocolates</li>
+                <li>
+                    <Link to={`${url}/chocolates`}>Chocolates</Link>
+                </li>
                 <li>Crackers</li>
                 <li>
                     <Link to={`${url}/crisps`}>Crisps</Link>
-                    </li>
+                </li>
                 <li>Nuts and Seeds</li>
                 <li>Popcorns</li>
                 <li>Shreds</li>
             </ul>
 
             <Switch>
-                <Route path={`${path}/:crisps`} component={Crisps}/>
+                <Route path={`${path}/:topic`} component={Topic}/>
             </Switch>
 
 
