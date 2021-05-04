@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 
 from .projectFiles.extensions import mongo, initialize_db
 
@@ -11,6 +12,7 @@ from .projectFiles.pages.users.routes import users
 
 def create_app(config_object='snackoverflow.projectFiles.settings'):
     app = Flask(__name__)
+    CORS(app)
 
     app.config.from_object(config_object)
 
