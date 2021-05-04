@@ -9,10 +9,8 @@ topics = Blueprint('topics', __name__)
 def test():
 
     for topic in Topic.objects:
-        print(dir(topic.objects))
-        print(topic.objects)
-        for info in topic.objects:
-            print(info)
+        # print(dir(topic.objects))
+        print(topic.title)
 
     # print(datetime.datetime.now())
 
