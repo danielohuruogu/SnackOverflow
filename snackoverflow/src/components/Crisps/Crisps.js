@@ -1,16 +1,21 @@
 import React from 'react'
 import style from './crisps.module.scss'
+import { Link, useParams } from "react-router-dom"
 
 const Crisps = () => {
+    console.log('hello');
+    const { crisps } = useParams();
+
     return (
-        <footer className={style.crisps}>
-            <div>
+        
+        <div className={style.crisps}>
+            {/* <div> */}
 
                 
                 <p>crisps</p>
-
-            </div>
-        </footer>
+                
+            {/* </div> */}
+        </div>
 
     )
 }

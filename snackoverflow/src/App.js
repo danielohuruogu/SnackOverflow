@@ -14,9 +14,9 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/topics" component={TopicsPage} />
+        <Route exact path="/topics" component={TopicsPage} />
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
 
     </div>
   );
