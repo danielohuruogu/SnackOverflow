@@ -1,0 +1,20 @@
+{
+    "posts": [
+        {
+            "title": "My first post",
+            "user_id": 1,
+            "body": "Which one is better?\nWalkers or Pringles?",
+            "comments_id": [20, 21]
+        },
+        {
+            "title": "My second post",
+            "user_id": 1,
+            "body": "Which one is better?\nWalkers or Pringles?",
+            "comments_id": [33, 34]
+        }
+    ]
+
+
+
+
+}
