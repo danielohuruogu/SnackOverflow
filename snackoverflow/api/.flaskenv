@@ -1,3 +1,2 @@
-FLASK_APP=api.py
+FLASK_APP=snackoverflow
 FLASK_ENV=development
-MONGO_URI=tbc
