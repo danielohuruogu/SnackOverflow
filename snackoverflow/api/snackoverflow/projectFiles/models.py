@@ -19,6 +19,14 @@ class Comment(mongo.Document):
 
     meta = {'collection': 'comments'}
 
+class Post(mongo.Document):
+    title = StringField(required=True)
+    user_id = IntField()
+    post_body = StringField()
+    comments = ListField(IntField())
+
+    meta = {'collection': 'posts'}
+
 class User(mongo.Document):
     # id = StringField()
     username = StringField(required=True)
