@@ -30,7 +30,7 @@ const TopicsPage = () => {
             </ul>
 
             <Switch>
-                <Route path={`$(path)/:crisps`} component={Crisps}/>
+                <Route path={`${path}/:crisps`} component={Crisps}/>
             </Switch>
 
 

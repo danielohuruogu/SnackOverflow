@@ -13,6 +13,7 @@ const Crisps = () => {
 
                 
                 <p>crisps</p>
+                <p>{crisps}</p>
                 
             {/* </div> */}
         </div>

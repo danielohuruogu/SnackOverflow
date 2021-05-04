@@ -11,10 +11,10 @@ function App() {
 
   return (
     <div className={style.App}>
-      <Header />
+      {/* <Header /> */}
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/topics" component={TopicsPage} />
+        <Route path="/topics" component={TopicsPage} />
       </Switch>
       {/* <Footer /> */}
 
