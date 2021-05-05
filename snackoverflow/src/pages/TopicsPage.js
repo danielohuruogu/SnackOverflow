@@ -10,12 +10,18 @@ const TopicsPage = () => {
     console.log('url', url)
     console.log('path', path)
 
-    // const [fetched, setFetched] = useState(false);
+    const [topics, setTopics] = useState([]);
+
+    console.log(topics)
 
     // use fetch to go to route
     useEffect(() => {
-
-    }, [])
+        const fetchFromApi = async () => {
+            const topicsFromServer = await fetchTopics(); // the awaited Promise would be fulfilled and assigned to topicsFromServer
+            setTopics(topicsFromServer)
+        };
+        fetchFromApi();
+    }, []);
 
 
     const fetchTopics = async () => {
@@ -28,12 +34,9 @@ const TopicsPage = () => {
         });
         const data = await res.json();
         // setFetch
-        return data;
+        return data; // returned is a Promise so needs to be awaited & assigned to topicsFromServer
     }
-    const data = fetchTopics()
-    // console.log(fetchTopics())
-    console.log(data)
-    console.log('hello from Johnny')
+
     return (
         <div className={style.topics}>
             <div className={style.welcome}>
@@ -41,26 +44,22 @@ const TopicsPage = () => {
             </div>
             <ul>
                 
-                {/* {data.map( topic => <li> { topic.name } </li> )} */}
+                {topics.map( (topic) => <li>
+                    <Link to={`${url}/${topic.title}`}>{ topic.title }</Link>
+                    </li> )}
 
-                <li>Biscuits</li>
-                <li>Cakes</li>
-                <li>Candies</li>
-                <li>Chewing Gums</li>
-                <li>
+                {/* <li>
                     <Link to={`${url}/chocolates`}>Chocolates</Link>
                 </li>
-                <li>Crackers</li>
                 <li>
                     <Link to={`${url}/crisps`}>Crisps</Link>
-                </li>
-                <li>Nuts and Seeds</li>
-                <li>Popcorns</li>
-                <li>Shreds</li>
+                </li> */}
             </ul>
 
             <Switch>
-                <Route path={`${path}/:topic`} component={Topic}/>
+                <Route path={`${path}/:topic`} render={(props) => ( // instead of component we use render to be able to pass down props
+                    <Topic />
+                )}/>
             </Switch>
 
 

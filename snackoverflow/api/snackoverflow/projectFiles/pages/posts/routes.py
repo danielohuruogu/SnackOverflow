@@ -1,5 +1,5 @@
 from flask import Blueprint, request, Response
-from ...models import posts, User, Post
+from ...models import User, Post
 from .... import mongo
 import datetime
 from bson import ObjectId
