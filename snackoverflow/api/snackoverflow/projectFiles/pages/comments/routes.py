@@ -38,7 +38,28 @@ def update_popularity_comment(id):
 def post_comment():
 
     body = request.get_json()
-    comment = Comment(**body).save()
-    id = comment.id
+    print(body)
+    if 'user_id' in body:
+        user_id = list(body['user_id'].values())[0]
+        del body['user_id']
+    else:
+        return '',400
 
-    return {'id': str(id)}, 200
+    if 'post_id' in body:
+        post_id = list(body['post_id'].values())[0]
+        del body['post_id']
+    else:
+        return '',400
+
+    print(body)
+    print(user_id)
+    print(post_id)
+
+    # print(list(post_id.values())[0])
+
+
+    # comment = Comment(**body).save()
+    # comment_id = comment.id
+
+    # return {'new_comment_id': str(comment_id)}, 200
+    return {},200
