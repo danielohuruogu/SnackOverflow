@@ -25,28 +25,28 @@ def find_user():
     for user in listedUsers:
         print( user.id, user.username, user.email, user.password )
 
-    return 'done'
+    return "found all users"
 
 ### removing users off the database ###
 
 #### UNTESTED - VALIDATION ERROR WITH EXISTINGUSER.DELETE() - OBJECTS HAVE NO ID THAT THE ENGINE CAN USE (???)
 
-@users.route('/users/delete', methods=['DELETE'])
-def delete_user():
+@users.route('/users/delete/<id>', methods=['DELETE'])
+def delete_user(id):
     body = request.get_json() # parse info coming in
-    usernameToDelete = body['username'] # grab username 
+    # usernameToDelete = body['username'] # grab username 
 
-    existingUser = User(username = usernameToDelete) # search database for existing user that matches username, but just creates object with that one matching item
-    print(existingUser.id)
-    print(existingUser.username)
-    print(existingUser.email)
-    print(existingUser.password)
-    # existingUser.delete() # delete that member
+    existingUser = User.objects.get(id=id) # search database for existing user that matches username, but just creates object with that one matching item
+    # print(existingUser.id)
+    # print(existingUser.username)
+    # print(existingUser.email)
+    # print(existingUser.password)
+    existingUser.delete() # delete that member
 
-    return 'deleted user successfully'
+    return jsonify(existingUser)
 
 # it wants to carry out these functions, along with the registration - but can't do so with the wrong users already in the database
-
+# 00.20 edit - no longer applicable for some reason ¯\_(ツ)_/¯
 
 
 @users.route('/signup', methods=['POST'])
