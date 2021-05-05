@@ -1,10 +1,10 @@
 import { Route, Switch } from "react-router-dom";
 import HomePage from "./pages/HomePage"
 import TopicsPage from "./pages/TopicsPage"
-
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import style from "./styles/app.module.scss";
+import PostsPage from "./pages/PostsPage";
 
 
 function App() {
@@ -14,7 +14,10 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route path="/topics/:topic_id/posts" component={PostsPage} />
         <Route path="/topics" component={TopicsPage} />
+        
+        {/* <Route path="/posts" component={PostsPage} /> */}
       </Switch>
       <Footer />
 

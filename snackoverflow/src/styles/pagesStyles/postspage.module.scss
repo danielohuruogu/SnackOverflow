@@ -1,0 +1,11 @@
+@import "../variables";
+@import "../mixins";
+
+.postspage {
+    background-color: $tea-green;
+    @include flex;
+    .desc {
+        flex: 0 0 100%;
+    }
+    
+}

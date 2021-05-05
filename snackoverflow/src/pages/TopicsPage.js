@@ -1,8 +1,8 @@
 import React, { useState, useEffect} from 'react'
 import { Link, useRouteMatch, Switch, Route } from 'react-router-dom'
-import Topic from '../components/Topic/Topic';
 // import { useRouteMatch } from 'react-router'
 import style from "../styles/pagesStyles/topicspage.module.scss"
+import PostsPage from './PostsPage';
 
 
 const TopicsPage = () => {
@@ -12,7 +12,7 @@ const TopicsPage = () => {
 
     const [topics, setTopics] = useState([]);
 
-    console.log(topics)
+    // console.log(topics)
 
     // use fetch to go to route
     useEffect(() => {
@@ -43,29 +43,14 @@ const TopicsPage = () => {
                 All topics listed from A to Z
             </div>
             <ul>
-                
-                {topics.map( (topic) => <li>
-                    <Link to={`${url}/${topic.title}`}>{ topic.title }</Link>
+                {topics.map((topic, key) => 
+                    <li key={key}>
+                        <Link to={`/topics/${topic._id['$oid']}/posts`}>{ topic.title }</Link>
                     </li> )}
-
-                {/* <li>
-                    <Link to={`${url}/chocolates`}>Chocolates</Link>
-                </li>
-                <li>
-                    <Link to={`${url}/crisps`}>Crisps</Link>
-                </li> */}
             </ul>
-
-            <Switch>
-                <Route path={`${path}/:topic`} render={(props) => ( // instead of component we use render to be able to pass down props
-                    <Topic />
-                )}/>
-            </Switch>
-
 
 
         </div>
-
     )
 }
 

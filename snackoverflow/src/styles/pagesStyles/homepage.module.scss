@@ -1,7 +1,7 @@
 @import "../variables";
 @import "../mixins";
 
-.home {
+.homepage {
     background-color: $tea-green;
     @include flex($dir: row wrap, $jc: space-around, $ai: start);
     // max-height: 600px;
