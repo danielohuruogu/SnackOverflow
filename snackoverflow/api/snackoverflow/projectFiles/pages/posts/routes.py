@@ -35,5 +35,12 @@ def update_popularity_posts(id):
     # return comment.to_json(), 200 #Correct code?
     return 'not working properly'
 
+@posts.route('/posts',methods=['POST'])
+def post_post():
 
+    body = request.get_json()
+    post = Post(**body).save()
+    id = post.id
+
+    return {'id': str(id)}, 200
 
