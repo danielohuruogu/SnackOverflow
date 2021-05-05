@@ -1,5 +1,11 @@
+import os
+
 from flask import Flask
 from flask_cors import CORS
+from flask_bcrypt import Bcrypt
+from flask_jwt_extended import JWTManager
+
+from flask_jwt_extended import jwt_required
 
 from .projectFiles.extensions import mongo, initialize_db
 
@@ -13,14 +19,15 @@ from .projectFiles.pages.users.routes import users
 def create_app(config_object='snackoverflow.projectFiles.settings'):
     app = Flask(__name__)
     CORS(app)
+    bcrypt(app)
 
     app.config.from_object(config_object)
+    app.config['JWT_SECRET_KEY'] = os.environ.get('SECRET')
+    app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=1)
+
+    jwt = JWTManager(app)
 
     initialize_db(app)
-
-    # print(mongo.get_connection())
-    # print(extensions.mongo.get_connection())
-    # print(dir(mongo))
 
     app.register_blueprint(main)
     app.register_blueprint(topics)
