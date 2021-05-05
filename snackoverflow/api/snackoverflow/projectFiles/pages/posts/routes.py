@@ -1,8 +1,10 @@
-from flask import Blueprint, request, Response
+from flask import Blueprint, request, Response, jsonify
 from ...models import User, Post
 from .... import mongo
 import datetime
 from bson import ObjectId
+from ..comments.routes import get_one_comment
+import json
 
 posts = Blueprint('posts', __name__)
 
@@ -10,7 +12,6 @@ posts = Blueprint('posts', __name__)
 def get_one_post(id):
 
     ObjId = ObjectId(id)
-    # print(ObjId)
 
     post = Post.objects.get(id=ObjId).to_json()
     return Response(post, mimetype="application/json", status=200)
@@ -43,4 +44,20 @@ def post_post():
     id = post.id
 
     return {'id': str(id)}, 200
+
+@posts.route('/posts/<id>/comments',methods=['GET'])
+def return_comments_for_post(id):
+
+    ObjId = ObjectId(id)
+    post = Post.objects.get(id=ObjId)
+
+    comments = []
+    for comment in post.comments_id:
+        print(comment.id)
+        # comment_data = json.loads(get_one_comment(ObjectId(comment.id)).get_data())
+        # print(comment_data)
+        # comments.append(comment_data)
+
+    # return jsonify(comments), 200
+    return '',200
 

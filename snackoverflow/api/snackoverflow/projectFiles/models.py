@@ -10,26 +10,26 @@ class Topic(mongo.Document):
 
     meta = {'collection': 'topics'}
 
-class Comment(mongo.Document):
-    text = StringField(required=True)
-    user_id = ReferenceField('User',required=True)
-    popularity = IntField()
-
-    meta = {'collection': 'comments'}
-
 class Post(mongo.Document):
     title = StringField(required=True)
     user_id = ReferenceField('User')
     post_body = StringField()
-    comments_id = ListField(ReferenceField(Comment))
+    comments_id = ListField(ReferenceField('Comment'))
 
     meta = {'collection': 'posts'}
+
+class Comment(mongo.Document):
+    text = StringField(required=True)
+    user_id = ReferenceField('User',required=True)
+    popularity = IntField(default=0)
+
+    meta = {'collection': 'comments'}
 
 class User(mongo.Document):
     username = StringField(required=True)
     password = StringField(required=True)
     email = EmailField(required=True)
-    posts_id = ListField(ReferenceField(Post))
-    comments_id = ListField(ReferenceField(Comment))
+    posts_id = ListField(ReferenceField('Post'))
+    comments_id = ListField(ReferenceField('Comment'))
 
     meta = {'collection': 'users'}
