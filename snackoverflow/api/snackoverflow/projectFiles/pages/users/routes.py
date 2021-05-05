@@ -36,7 +36,9 @@ def delete_user(id):
     body = request.get_json() # parse info coming in
     # usernameToDelete = body['username'] # grab username 
 
-    existingUser = User.objects.get(id=id) # search database for existing user that matches username, but just creates object with that one matching item
+    ObjId = ObjectId(id)
+
+    existingUser = User.objects.get(id=ObjId) # search database for existing user that matches username, but just creates object with that one matching item
     # print(existingUser.id)
     # print(existingUser.username)
     # print(existingUser.email)
