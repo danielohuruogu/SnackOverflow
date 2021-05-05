@@ -4,14 +4,14 @@ import datetime
 from mongoengine import Document, ListField, StringField, DateTimeField, IntField, EmailField, ReferenceField
 
 # importing hashing functions from bcrypt
-from flask_bcrypt import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 
 class Topic(mongo.Document):
     title = StringField(required=True)
     date_created = DateTimeField(default=datetime.datetime.utcnow)
 
     # to reference the posts and stuff, this may need to change quite a bit
-    posts_id = ListField(IntField())
+    posts_id = ListField(IntField()) # should that be an intfield?
 
     meta = {'collection': 'topics'}
 
@@ -35,11 +35,11 @@ class User(mongo.Document):
     password = StringField(required=True)
 
     # adding hashing functions
-    def hash_password(self):
-        self.password = generate_password_hash(self.password).decode('utf8')
+    def hash_password(self, password):
+        self.password_hash = generate_password_hash(password).decode('utf8')
 
     def check_password(Self, password):
-        return check_password_hash(self.password, password)
+        return check_password_hash(self.password_hash, password)
 
     email = EmailField(required=True)
     posts_id = ListField(ReferenceField(Post))

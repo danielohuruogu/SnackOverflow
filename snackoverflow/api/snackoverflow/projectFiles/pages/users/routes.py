@@ -4,7 +4,7 @@ from bson.json_util import dumps
 
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
-from flask_bcrypt import Bcrypt
+from werkzeug.security import check_password_hash
 
 from ...models import Topic, User
 from .... import mongo
@@ -23,16 +23,7 @@ def find_user():
 
     return 'done'
 
-@users.route('/users/signup', methods=['POST'])
-def create_user():
-    request.json
-    # create a new model based on info coming in
-    # will have to parse result into format that server can read
 
-    # create a new instance of the model
-    # newUser = User(username='username parsed through data', password='password parsed', email='email parsed')
-    # newUser.hash_password
-    # newUser.save()
 
 @users.route('/users/login', methods=['GET'])
 def login():
