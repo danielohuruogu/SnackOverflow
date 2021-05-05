@@ -6,6 +6,12 @@ from bson import ObjectId
 
 comments = Blueprint('comments', __name__)
 
+@comments.route('/comments',methods=['GET'])
+def get_comments():
+
+    comments = Comment.objects().to_json()
+    return Response(comments, mimetype="application/json", status=200)
+
 @comments.route('/comments/<id>',methods=['GET'])
 def get_one_comment(id):
 

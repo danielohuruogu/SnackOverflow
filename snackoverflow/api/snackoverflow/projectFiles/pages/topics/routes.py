@@ -1,8 +1,11 @@
-from flask import Blueprint, request, Response
+from flask import Blueprint, request, Response, jsonify
 from ...models import Topic, User
 from .... import mongo
 import datetime
 from bson import ObjectId
+from ..posts.routes import get_one_post
+# import requests
+import json
 
 topics = Blueprint('topics', __name__)
 
@@ -46,3 +49,17 @@ def delete_topic(id):
     body = request.get_json()
     Topic.objects.get(id=id).update(**body)
     return '', 200
+
+@topics.route('/topics/<id>/posts',methods=['GET'])
+def return_posts_for_topic(id):
+
+    ObjId = ObjectId(id)
+    topic = Topic.objects.get(id=ObjId)
+
+    posts = []
+    for post in topic.posts_id:
+        print(post)
+        post_data = json.loads(get_one_post(post.id).get_data())
+        posts.append(post_data)
+
+    return jsonify(posts), 200
