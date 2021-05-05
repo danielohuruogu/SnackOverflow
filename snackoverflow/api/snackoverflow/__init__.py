@@ -24,10 +24,10 @@ def create_app(config_object='snackoverflow.projectFiles.settings'):
 
     app.config.from_object(config_object)
     app.config['JWT_SECRET_KEY'] = os.environ.get('SECRET')
-    app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=1)
+    # app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=1)
 
     jwt = JWTManager(app)
-    flask_bcrypt(app)
+    # flask_bcrypt(app)
     initialize_db(app)
 
     app.register_blueprint(main)

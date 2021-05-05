@@ -31,9 +31,9 @@ class Post(mongo.Document):
     meta = {'collection': 'posts'}
 
 class User(mongo.Document):
-    _id = IntField()
     username = StringField(required=True)
     password = StringField(required=True)
+    email = EmailField(required=True)
 
     # adding hashing functions
     def hash_password(self, password):
@@ -42,8 +42,26 @@ class User(mongo.Document):
     def check_password(Self, password):
         return check_password_hash(self.password_hash, password)
 
-    email = EmailField(required=True)
     posts_id = ListField(ReferenceField(Post))
     comments_id = ListField(ReferenceField(Comment))
 
     meta = {'collection': 'users'}
+
+    # def encode_auth_token(self, user_id):
+    # """
+    # Generates the Auth Token
+    # :return: string
+    # """
+    # try:
+    #     payload = {
+    #         'exp': datetime.datetime.utcnow() + datetime.timedelta(days=0, seconds=5),
+    #         'iat': datetime.datetime.utcnow(),
+    #         'sub': user_id
+    #     }
+    #     return jwt.encode(
+    #         payload,
+    #         app.config.get('SECRET_KEY'),
+    #         algorithm='HS256'
+    #     )
+    # except Exception as e:
+    #     return e

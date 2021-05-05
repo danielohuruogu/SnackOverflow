@@ -60,25 +60,28 @@ def create_user():
         # hashing the password
         hashed_pass = generate_password_hash(body['password'], method='sha256')
         # adding data to a new document
-        print(hashed_pass)
+        # newUser = {'username': body['username'],'password': hashed_pass,'email': body['email']}
         newUser = User(username = body['username'], password = hashed_pass, email = body['email'])
         print(newUser)
         # saving it to the database
         newUser.save()
         print("success")
         # returning user to see if it worked
+        return "added user to the database"
 
 # this route works, but issue with the database - object has id=null, the same as the users already in the database.
 # won't save a new one because of this
+# edit @ 00:00 - this works
+
 
 # ################# NOT TESTED YET ###################
-@users.route('/login', methods=[GET, POST])
-def login():
-    body = request.get_json()
-    check_user = User.objects(email=body['email']).first()
-    if check_user:
-        if check_password_hash(check_user['password'], body['password']):
-            login_user(check_user)
+# @users.route('/login', methods=['GET', 'POST'])
+# def login():
+#     body = request.get_json()
+#     check_user = User.objects(email=body['email']).first()
+#     if check_user:
+#         if check_password_hash(check_user['password'], body['password']):
+#             login_user(check_user)
 
 # @users.route('/users/login', methods=['GET'])
 # def login():
@@ -93,6 +96,6 @@ def login():
 #     return jsonify(access_token=access_token)
 
 
-@users.route('/logout', methods=[GET, POST])
-def logout():
-    logout_user()
+# @users.route('/logout', methods=['GET', 'POST'])
+# def logout():
+#     logout_user()
