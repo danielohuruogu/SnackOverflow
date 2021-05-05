@@ -1,7 +1,7 @@
 import flask
 from snackoverflow import mongo
 import datetime
-from mongoengine import Document, ListField, StringField, DateTimeField, IntField, EmailField
+from mongoengine import Document, ListField, StringField, DateTimeField, IntField, EmailField, ReferenceField
 
 # importing hashing functions from bcrypt
 from flask_bcrypt import generate_password_hash, check_password_hash
@@ -17,16 +17,16 @@ class Topic(mongo.Document):
 
 class Comment(mongo.Document):
     text = StringField(required=True)
-    user_id = IntField(required=True)
+    user_id = ReferenceField('User',required=True)
     popularity = IntField()
 
     meta = {'collection': 'comments'}
 
 class Post(mongo.Document):
     title = StringField(required=True)
-    user_id = IntField()
+    user_id = ReferenceField('User')
     post_body = StringField()
-    comments = ListField(IntField())
+    comments_id = ListField(ReferenceField(Comment))
 
     meta = {'collection': 'posts'}
 
@@ -42,7 +42,7 @@ class User(mongo.Document):
         return check_password_hash(self.password, password)
 
     email = EmailField(required=True)
-    posts_id = ListField(IntField())
-    comments_id = ListField(IntField())
+    posts_id = ListField(ReferenceField(Post))
+    comments_id = ListField(ReferenceField(Comment))
 
     meta = {'collection': 'users'}
