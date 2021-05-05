@@ -29,15 +29,19 @@ def find_user():
 
 ### removing users off the database ###
 
+#### UNTESTED - VALIDATION ERROR WITH EXISTINGUSER.DELETE() - OBJECTS HAVE NO ID THAT THE ENGINE CAN USE (???)
+
 @users.route('/users/delete', methods=['DELETE'])
 def delete_user():
     body = request.get_json() # parse info coming in
     usernameToDelete = body['username'] # grab username 
-    print(usernameToDelete)
 
-    existingUser = User(username = usernameToDelete) # search database for existing user that matches username
-    print(existingUser)
-    existingUser.delete() # delete that member
+    existingUser = User(username = usernameToDelete) # search database for existing user that matches username, but just creates object with that one matching item
+    print(existingUser.id)
+    print(existingUser.username)
+    print(existingUser.email)
+    print(existingUser.password)
+    # existingUser.delete() # delete that member
 
     return 'deleted user successfully'
 
@@ -75,13 +79,13 @@ def create_user():
 
 
 # ################# NOT TESTED YET ###################
-# @users.route('/login', methods=['GET', 'POST'])
-# def login():
-#     body = request.get_json()
-#     check_user = User.objects(email=body['email']).first()
-#     if check_user:
-#         if check_password_hash(check_user['password'], body['password']):
-#             login_user(check_user)
+@users.route('/login', methods=['GET', 'POST'])
+def login():
+    body = request.get_json()
+    check_user = User.objects(email=body['email']).first()
+    if check_user:
+        if check_password_hash(check_user['password'], body['password']):
+            login_user(check_user)
 
 # @users.route('/users/login', methods=['GET'])
 # def login():
