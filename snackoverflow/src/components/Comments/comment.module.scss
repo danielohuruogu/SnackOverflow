@@ -1,0 +1,9 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.comments {
+    background-color: $unbleached-silk;
+    flex: 0 0 65%;
+    padding: 0px 10px 0px 10px; //top right bottom left
+
+}

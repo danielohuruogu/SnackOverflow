@@ -1,15 +1,11 @@
 import React, { useState, useEffect, useParams } from 'react'
 import { Link, useRouteMatch, Switch, Route } from 'react-router-dom'
-
 import style from './posts.module.scss'
 
 const Posts = () => {
-    // const { topic_id } = useParams();
     const { url, path } = useRouteMatch();
-
     const [posts, setPosts] = useState([])
 
-    // console.log(posts)
     useEffect(() => {
         const fetchFromApi = async () => {
             const postsFromServer = await fetchPosts()
@@ -17,7 +13,6 @@ const Posts = () => {
         };
         fetchFromApi();
     }, []);
-
 
     const fetchPosts = async () => {
         const res = await fetch(url, {
@@ -33,16 +28,20 @@ const Posts = () => {
         return data; // returned is a Promise so needs to be awaited & assigned to postsFromServer
     }
 
-    console.log(posts)
     return (
         <div className={style.posts}>
-               
-            <p>All Posts</p>
+            <div>
+                <p>All Posts</p>
+            </div>
+            <ul>
 
-            {posts.map((post, key) => <p key={key}>{post.title}</p>)}
-                 
-
+            </ul>
+            {posts.map((post, key) => 
+            <li key={key}>
+                <Link to={''}>{post.title}</Link></li>)}
         </div>
+
+            // <Link to={`/topics/${topic._id['$oid']}/posts`}>{ topic.title }</Link>
 
     )
 }

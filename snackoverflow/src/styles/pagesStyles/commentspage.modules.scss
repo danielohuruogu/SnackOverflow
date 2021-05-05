@@ -1,7 +1,7 @@
 @import "../variables";
 @import "../mixins";
 
-.topicspage {
+.commentspage {
     background-color: $tea-green;
     @include flex($dir: column wrap, $jc: start, $ai: start);
     margin: 0px 5% 0px 5%;
