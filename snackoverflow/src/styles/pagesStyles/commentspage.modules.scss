@@ -1,9 +1,0 @@
-@import "../variables";
-@import "../mixins";
-
-.commentspage {
-    background-color: $tea-green;
-    @include flex($dir: column wrap, $jc: start, $ai: start);
-    margin: 0px 5% 0px 5%;
-    padding: 0px 0px 78px 0px;
-}

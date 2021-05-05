@@ -32,7 +32,7 @@ const Comments = () => {
     return (
         <div className={style.comments}>
             <p>All Comments</p>
-            {comments.map((comment, key) => <p key={key}>{comment.title}</p>)}
+            {comments.map((comment, key) => <p key={key}>{comment.text}</p>)}
                  
         </div>
     )

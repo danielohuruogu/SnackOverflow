@@ -1,0 +1,10 @@
+@import "../variables";
+@import "../mixins";
+
+.commentspage {
+    background-color: $tea-green;
+    @include flex;
+    .desc {
+        flex: 0 0 100%;
+    }
+}

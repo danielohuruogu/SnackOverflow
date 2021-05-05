@@ -38,7 +38,7 @@ const Posts = () => {
             </ul>
             {posts.map((post, key) => 
             <li key={key}>
-                <Link to={''}>{post.title}</Link></li>)}
+                <Link to={`/posts/${post._id['$oid']}/comments`}>{post.title}</Link></li>)}
         </div>
 
             // <Link to={`/topics/${topic._id['$oid']}/posts`}>{ topic.title }</Link>
