@@ -31,6 +31,7 @@ class Post(mongo.Document):
     meta = {'collection': 'posts'}
 
 class User(mongo.Document):
+    _id = IntField()
     username = StringField(required=True)
     password = StringField(required=True)
 
