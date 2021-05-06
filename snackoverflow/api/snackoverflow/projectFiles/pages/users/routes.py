@@ -63,7 +63,6 @@ def create_user():
         # hashing the password
         hashed_pass = generate_password_hash(body['password'], method='sha256')
         # adding data to a new document
-        # newUser = {'username': body['username'],'password': hashed_pass,'email': body['email']}
         newUser = User(username = body['username'], password = hashed_pass, email = body['email'])
         print(newUser)
         # saving it to the database
@@ -86,23 +85,16 @@ def login():
     if check_user:
         try:
             check_password_hash(check_user['password'], body['password'])
-            return "passwords match - will login"
             login_user(check_user) # no idea what this means yet, but it all goes through with status 200
+            return "passwords match - will login"
+
         except ValidationError as e:
             return "Validation error - passwords don't match"
 
-# method with JWT - hasn't been coded properly
-# @users.route('/users/login', methods=['GET'])
-# def login():
-#     # database search
-#     username = request.json.get("username", None)
-#     password = request.json.get("password", None)
-#     if username != User.objects(username='username') or password != User.objects(password='password'):
-#         return "incorrect username/password. please try again"
 
-#     # if good, pass a token through
-#     access_token = create_access_token(identity=username)
-#     return jsonify(access_token=access_token)
+#### to display an account - NOT TESTED ####
+@users.route('/profile', methods=['GET'])
+def display_profile():
 
 
 # @users.route('/logout', methods=['GET', 'POST'])
