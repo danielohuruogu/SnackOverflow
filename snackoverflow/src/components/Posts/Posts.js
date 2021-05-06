@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useParams } from 'react'
 import { Link, useRouteMatch, Switch, Route } from 'react-router-dom'
+import CreatePost from '../CreatePost/CreatePost';
 import style from './posts.module.scss'
 
 const Posts = () => {
@@ -49,6 +50,9 @@ const Posts = () => {
 
     return (
         <div className={style.posts}>
+            
+            <CreatePost/>
+
             <div>
                 <p>All Posts for {topic.title}</p>
             </div>
