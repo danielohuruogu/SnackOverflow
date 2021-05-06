@@ -42,11 +42,9 @@ class User(mongo.Document):
     def check_password(Self, password):
         return check_password_hash(self.password_hash, password)
 
-    is_authenticated=BooleanField()
-    is_active=BooleanField()
-    is_anonymous=BooleanField()
-    
-    def get_id():
+    # is_authenticated=BooleanField()
+    # is_active=BooleanField()
+    # is_anonymous=BooleanField()
 
     posts_id = ListField(ReferenceField(Post))
     comments_id = ListField(ReferenceField(Comment))
