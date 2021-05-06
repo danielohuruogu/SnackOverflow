@@ -7,10 +7,11 @@ const Posts = () => {
     const { url, path } = useRouteMatch();
     const [posts, setPosts] = useState([])
     const [topic, setTopics] = useState({})
-
+    
     useEffect(() => {
         const fetchFromApi = async () => {
             const postsFromServer = await fetchPosts()
+            console.log(postsFromServer)
             setPosts(postsFromServer)
             const topicFromServer = await fetchChosenTopic()
             setTopics(topicFromServer)
@@ -26,7 +27,9 @@ const Posts = () => {
                 "Accept": "application/json",
             },
         });
+        console.log(res)
         const posts_data = await res.json();
+        console.log(posts_data)
         return posts_data; // returned is a Promise so needs to be awaited & assigned to postsFromServer
     }
 
@@ -47,7 +50,7 @@ const Posts = () => {
         const topic_data = await res.json();
         return topic_data; // returned is a Promise so needs to be awaited & assigned to postsFromServer
     }
-
+    console.log(posts)
     return (
         <div className={style.posts}>
             

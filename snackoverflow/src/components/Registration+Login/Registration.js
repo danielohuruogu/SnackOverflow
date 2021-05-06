@@ -1,10 +1,8 @@
 import React, { useState, useEffect} from 'react'
-import style from './topic.module.scss'
+import style from './registration.module.scss'
 import { Link, useParams } from "react-router-dom"
 
 const Topic = () => {
-    const { topic } = useParams();
-
     const [posts, setPosts] = useState([])
 
     console.log(posts)
@@ -31,24 +29,9 @@ const Topic = () => {
 
     return (
         
-        <div className={style.topic}>
-            {/* <div> */}
+        <div className={style.registrationpage}>
+            <p>registration page</p>
 
-                
-                <p>topic</p>
-                <p>{topic}</p>
-                {/* <p>{posts}</p> */}
-
-
-                {posts.map( (post) => {
-                    // <p>{post}</p>
-                    post.posts_id.map( (post_id) => <p>{post_id}</p>
-                    )
-                } )}
-
-                {/* <p>{post["posts_id"]}</p> */}
-                
-            {/* </div> */}
         </div>
 
     )

@@ -22,6 +22,14 @@ def get_all():
     post = Post.objects().to_json()
     return Response(post, mimetype="application/json", status=200)
 
+@posts.route('/posts/<id>',methods=['DELETE'])
+def delete_post(id):
+
+    ObjId = ObjectId(id)
+
+    Post.objects.get(id=ObjId).delete()
+    return '',200
+
 # @posts.route('/posts/<id>',methods=['PATCH'])
 # def update_posts(id):
 

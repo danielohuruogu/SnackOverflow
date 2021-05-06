@@ -32,16 +32,16 @@ def post_topic():
 
     return {'id': str(id)}, 200
 
-# @topics.route('/topics/<id>',methods=['DELETE'])
-# def delete_topic(id):
+@topics.route('/topics/<id>',methods=['DELETE'])
+def delete_topic(id):
 
-#     ObjId = ObjectId(id)
+    ObjId = ObjectId(id)
 
-#     Topic.objects.get(id=ObjId).delete()
-#     return '',200
+    Topic.objects.get(id=ObjId).delete()
+    return '',200
 
 @topics.route('/topics/<id>',methods=['PUT'])
-def delete_topic(id):
+def update_topic(id):
     # NOT TESTED
 
     ObjId = ObjectId(id)
