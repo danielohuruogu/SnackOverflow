@@ -5,11 +5,14 @@ import style from './comments.module.scss'
 const Comments = () => {
     const { url, path } = useRouteMatch();
     const [comments, setComments] = useState([])
+    const [post, setPost] = useState({})
 
     useEffect(() => {
         const fetchFromApi = async () => {
             const commentsFromServer = await fetchComments()
             setComments(commentsFromServer)
+            const postFromServer = await fetchChosenPost()
+            setPost(postFromServer)
         };
         fetchFromApi();
     }, []);
@@ -23,16 +26,40 @@ const Comments = () => {
             },
         });
         const data = await res.json();
-        console.log(url)
-        console.log(data)
         return data; // returned is a Promise so needs to be awaited & assigned to commentsFromServer
     }
 
-    console.log(comments)
+    const removeLastDirectoryPartOf = (url) => {
+        const topics_url = url.split('/');
+        topics_url.pop()
+        return topics_url.join('/')
+    }
+
+    const fetchChosenPost = async () => {
+        const res = await fetch(removeLastDirectoryPartOf(url), {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+            },
+        });
+        const post_data = await res.json();
+        return post_data; // returned is a Promise so needs to be awaited & assigned to commentsFromServer
+    }
+
     return (
         <div className={style.comments}>
-            <p>All Comments</p>
-            {comments.map((comment, key) => <p key={key}>{comment.text}</p>)}
+            <div>
+                <p>{post.title}</p>
+                <p>{post.post_body}</p>      
+            </div>
+            <div>----------</div>
+            <div>
+                <p>All Comments</p>
+                <ul>
+                    {comments.map((comment, key) => <li key={key}>{comment.text}</li>)}
+                </ul>
+            </div>
                  
         </div>
     )

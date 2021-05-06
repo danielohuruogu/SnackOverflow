@@ -5,11 +5,14 @@ import style from './posts.module.scss'
 const Posts = () => {
     const { url, path } = useRouteMatch();
     const [posts, setPosts] = useState([])
+    const [topic, setTopics] = useState({})
 
     useEffect(() => {
         const fetchFromApi = async () => {
             const postsFromServer = await fetchPosts()
             setPosts(postsFromServer)
+            const topicFromServer = await fetchChosenTopic()
+            setTopics(topicFromServer)
         };
         fetchFromApi();
     }, []);
@@ -22,27 +25,43 @@ const Posts = () => {
                 "Accept": "application/json",
             },
         });
-        const data = await res.json();
-        console.log(url)
-        console.log(data)
-        return data; // returned is a Promise so needs to be awaited & assigned to postsFromServer
+        const posts_data = await res.json();
+        return posts_data; // returned is a Promise so needs to be awaited & assigned to postsFromServer
+    }
+
+    const removeLastDirectoryPartOf = (url) => {
+        const topics_url = url.split('/');
+        topics_url.pop()
+        return topics_url.join('/')
+    }
+
+    const fetchChosenTopic = async () => {
+        const res = await fetch(removeLastDirectoryPartOf(url), {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+            },
+        });
+        const topic_data = await res.json();
+        return topic_data; // returned is a Promise so needs to be awaited & assigned to postsFromServer
     }
 
     return (
         <div className={style.posts}>
             <div>
-                <p>All Posts</p>
+                <p>All Posts for {topic.title}</p>
             </div>
-            <ul>
 
+            <ul>
+                {posts.map((post, key) => 
+                <li key={key}>
+                    <Link to={`/posts/${post._id['$oid']}/comments`}>{post.title}</Link>
+                </li>)}
             </ul>
-            {posts.map((post, key) => 
-            <li key={key}>
-                <Link to={`/posts/${post._id['$oid']}/comments`}>{post.title}</Link></li>)}
         </div>
 
             // <Link to={`/topics/${topic._id['$oid']}/posts`}>{ topic.title }</Link>
-
     )
 }
 

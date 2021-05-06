@@ -4,6 +4,7 @@
 .postspage {
     background-color: $tea-green;
     @include flex;
+    margin: 0px 5% 0px 5%;
     .desc {
         flex: 0 0 100%;
     }
