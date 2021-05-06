@@ -2,8 +2,27 @@
 @import "../../styles/mixins";
 
 .comments {
-    background-color: $unbleached-silk;
-    flex: 0 0 65%;
+    background-color: lightyellow;
+    box-shadow: 0px 0px 3px grey;
+    border-radius: 5px;
     padding: 0px 10px 0px 10px; //top right bottom left
-
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+.title {
+    font-size: 30px;
+    text-decoration: underline;
+    font-weight: bold;
+    padding: 10px 0 10px 0; //top right bottom left
+}
+.subtitles {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px 0 10px 0; //top right bottom left
+}
+.contentsList {
+    list-style: none; 
+    text-align: start;
+    font-size: 20px;
+    padding: 5px 0 5px 0;
 }

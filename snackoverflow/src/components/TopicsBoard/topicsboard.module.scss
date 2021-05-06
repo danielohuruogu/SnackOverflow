@@ -1,12 +1,32 @@
 @import "../../styles/variables";
 @import "../../styles/mixins";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 .topicsboard {
     // @include flex;
-    background-color: green;
-    flex: 0 0 65%;
-    max-width: 400px;
-    padding: 0px 10px 0px 10px; //top right bottom left
-
-    // @include flex; 
+    // background-color: #e4ffe1;
+    // flex: 0 0 65%;
+    // max-width: 450px;
+    // border-radius: 8px;
+    // border: 5px solid #e4ffe1;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-evenly;
+    // align-content: center;
+    // @include flex;
+}
+.titles {
+    color: #043539;
+    font-size: 35px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.alltopics {
+    color: #043539;
+    font-size: 35px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
 }
