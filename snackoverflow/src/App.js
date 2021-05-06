@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer";
 import style from "./styles/app.module.scss";
 import PostsPage from "./pages/PostsPage";
 import CommentsPage from "./pages/CommentsPage";
-
+import LoginPage from "./pages/LoginPage";
 
 function App() {
 
@@ -20,6 +20,7 @@ function App() {
         <Route path="/posts/:post_id/comments" component={CommentsPage} />
         <Route path="/posts" component={PostsPage} />
         {/* <Route path="/posts" component={PostsPage} /> */}
+        <Route path="/login" component={LoginPage} />
       </Switch>
       <Footer />
 
