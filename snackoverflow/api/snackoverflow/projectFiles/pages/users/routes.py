@@ -1,9 +1,12 @@
 from flask import Blueprint, request, jsonify
 
 from bson.json_util import dumps
+from bson import ObjectId
 
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
+
+from flask_login import current_user, login_user
 
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -29,23 +32,17 @@ def find_user():
 
 ### removing users off the database ###
 
-#### UNTESTED - VALIDATION ERROR WITH EXISTINGUSER.DELETE() - OBJECTS HAVE NO ID THAT THE ENGINE CAN USE (???)
-
 @users.route('/users/delete/<id>', methods=['DELETE'])
 def delete_user(id):
-    body = request.get_json() # parse info coming in
-    # usernameToDelete = body['username'] # grab username 
+    # body = request.get_json() # can be used for PostMan
 
     ObjId = ObjectId(id)
 
     existingUser = User.objects.get(id=ObjId) # search database for existing user that matches username, but just creates object with that one matching item
-    # print(existingUser.id)
-    # print(existingUser.username)
-    # print(existingUser.email)
-    # print(existingUser.password)
-    existingUser.delete() # delete that member
 
-    return jsonify(existingUser)
+    existingUser.delete()
+
+    return "user deleted"
 
 # it wants to carry out these functions, along with the registration - but can't do so with the wrong users already in the database
 # 00.20 edit - no longer applicable for some reason ¯\_(ツ)_/¯
@@ -81,14 +78,20 @@ def create_user():
 
 
 # ################# NOT TESTED YET ###################
+# method with flask-login - still working on it
 @users.route('/login', methods=['GET', 'POST'])
 def login():
     body = request.get_json()
-    check_user = User.objects(email=body['email']).first()
+    check_user = User.objects.get(email=body['email'])
     if check_user:
-        if check_password_hash(check_user['password'], body['password']):
-            login_user(check_user)
+        try:
+            check_password_hash(check_user['password'], body['password'])
+            return "passwords match - will login"
+            login_user(check_user) # no idea what this means yet, but it all goes through with status 200
+        except ValidationError as e:
+            return "Validation error - passwords don't match"
 
+# method with JWT - hasn't been coded properly
 # @users.route('/users/login', methods=['GET'])
 # def login():
 #     # database search

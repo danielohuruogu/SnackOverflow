@@ -4,7 +4,7 @@ import sys
 from flask import Flask
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
-# from flask_bcrypt import Bcrypt # will use werkzeug instead
+from flask_login import LoginManager
 
 from flask_jwt_extended import jwt_required
 
@@ -27,7 +27,7 @@ def create_app(config_object='snackoverflow.projectFiles.settings'):
     # app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=1)
 
     jwt = JWTManager(app)
-    # flask_bcrypt(app)
+    login = LoginManager(app)
     initialize_db(app)
 
     app.register_blueprint(main)
