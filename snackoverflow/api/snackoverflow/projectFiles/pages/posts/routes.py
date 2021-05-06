@@ -23,29 +23,20 @@ def get_all():
     post = Post.objects().to_json()
     return Response(post, mimetype="application/json", status=200)
 
-@posts.route('/posts/<id>',methods=['PATCH'])
-def update_posts(id):
+# @posts.route('/posts/<id>',methods=['PATCH'])
+# def update_posts(id):
 
-    ObjId = ObjectId(id)
-    posts = Post.objects.get(id=ObjId)
-
-    body = request.get_json()
-    post  = Post.objects.get(id=id).update(**body)
-
-    # print('increase/decrease popularity - depends on hwo you want to pass data in.')
-    # Two different ways, simply pass in +1 or -1 from frontend OR pass in the updated value (so prev popularity +- 1)
-
-    return post.to_json(), 200 #Correct code?
-    # return 'not working properly'
-
-# @posts.route('/posts',methods=['POST'])
-# def post_post():
+#     ObjId = ObjectId(id)
+#     posts = Post.objects.get(id=ObjId)
 
 #     body = request.get_json()
-#     post = Post(**body).save()
-#     id = post.id
+#     post  = Post.objects.get(id=id).update(**body)
 
-#     return {'id': str(id)}, 200
+#     # print('increase/decrease popularity - depends on hwo you want to pass data in.')
+#     # Two different ways, simply pass in +1 or -1 from frontend OR pass in the updated value (so prev popularity +- 1)
+
+#     return post.to_json(), 200 #Correct code?
+#     # return 'not working properly'
 
 @posts.route('/posts/<id>/comments',methods=['GET'])
 def return_comments_for_post(id):
@@ -62,46 +53,6 @@ def return_comments_for_post(id):
 
     return jsonify(comments), 200
 
-'''
-@posts.route('/posts/<id>',methods=['PUT'])
-def put_post(id,data=None,comment=none):
-
-    ObjId = ObjectId(id)
-
-    # Checks if it has been passed data - only passed data if being called inside another route
-    if data:
-        body = data
-    else:
-        body = request.get_json()
-
-    print(body)
-
-    #Seems to mess up the put request a bit
-    # if '_id' in body:
-    #     del body['_id']
-
-    # To convert all $oid to int's.
-    if 'comments_id' in body:
-        int_comments_id = []
-        for item in body['comments_id']:
-            int_comments_id.append(item['$oid'])
-        body['comments_id'] = int_comments_id
-
-    # del body['title']
-    del body['user_id']
-    # del body['post_body']
-
-    # post  = Post.objects.get(id=ObjId).update(**body)
-    print(body)
-    post  = Post.objects.get(id=ObjId)
-    print(post.to_json())
-    # post = post.update(**body)
-
-    post = post.update(comments_id=body['comments_id'])
-
-    return '', 200
-    # return post.to_json(), 200
-'''
 
 @posts.route('/posts',methods=['POST'])
 def post_post():
