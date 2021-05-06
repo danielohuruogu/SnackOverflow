@@ -12,8 +12,8 @@ class Topic(mongo.Document):
 
 class Post(mongo.Document):
     title = StringField(required=True)
-    user_id = ReferenceField('User')
-    post_body = StringField()
+    user_id = ReferenceField('User',required=True)
+    post_body = StringField(required=True)
     comments_id = ListField(ReferenceField('Comment'))
 
     meta = {'collection': 'posts'}
@@ -29,7 +29,7 @@ class User(mongo.Document):
     username = StringField(required=True)
     password = StringField(required=True)
     email = EmailField(required=True)
-    posts_id = ListField(ReferenceField('Post'))
-    comments_id = ListField(ReferenceField('Comment'))
+    # posts_id = ListField(ReferenceField('Post'))
+    # comments_id = ListField(ReferenceField('Comment'))
 
     meta = {'collection': 'users'}
