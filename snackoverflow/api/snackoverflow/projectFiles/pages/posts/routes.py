@@ -3,9 +3,7 @@ from ...models import User, Post, Topic
 from .... import mongo
 import datetime
 from bson import ObjectId
-# import ..comments.routes as comments_fns
 import json
-# import requests
 
 posts = Blueprint('posts', __name__)
 
@@ -70,7 +68,7 @@ def post_post():
     ## Post comment
     post = Post(title=post_title,post_body=post_body,user_id=user).save()
     post_id = post.id
-    print(post_id)
+    # print(post_id)
 
     ## Find Post and add comment ref to it
     Topic.objects(id=topic_id).update_one(push__posts_id=post)
