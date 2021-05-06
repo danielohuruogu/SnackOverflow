@@ -3,7 +3,8 @@ from snackoverflow import mongo
 import datetime
 from mongoengine import Document, ListField, StringField, DateTimeField, IntField, EmailField, ReferenceField
 
-# importing hashing functions from bcrypt
+from flask_login import UserMixin
+
 from werkzeug.security import generate_password_hash, check_password_hash
 
 class Topic(mongo.Document):
@@ -30,7 +31,7 @@ class Post(mongo.Document):
 
     meta = {'collection': 'posts'}
 
-class User(mongo.Document):
+class User(UserMixin, mongo.Document):
     username = StringField(required=True)
     password = StringField(required=True)
     email = EmailField(required=True)
