@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 from .projectFiles.extensions import mongo, initialize_db
 
@@ -9,14 +9,16 @@ from .projectFiles.pages.posts.routes import posts
 from .projectFiles.pages.comments.routes import comments
 from .projectFiles.pages.users.routes import users
 
-
+# @cross_origin(supports_credentials=True)
 def create_app(config_object='snackoverflow.projectFiles.settings'):
     app = Flask(__name__)
-    CORS(app)
+    CORS(app, support_credentials=True)
 
     app.config.from_object(config_object)
-
+    # app.headers.add('Access-Control-Allow-Origin', '*')
     initialize_db(app)
+
+    # Bootstrap(app)
 
     # print(mongo.get_connection())
     # print(extensions.mongo.get_connection())

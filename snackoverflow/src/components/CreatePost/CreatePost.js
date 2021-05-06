@@ -1,71 +1,97 @@
 import React, { useState, useEffect, useSelector } from 'react'
 import style from './createpost.module.scss'
-import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
 import { useRouteMatch } from 'react-router';
 import QuillEditor from '../QuillEditor/QuillEditor';
-
+import ReactQuill, { Quill } from 'react-quill';
 
 
 const CreatePost = () => {
-    // const user = useSelector(state => state.user)
+    const { url, path } = useRouteMatch();
 
-    const [content, setContent] = useState("")
-    const [files, setFiles] = useState([])
+    const [title, setTitle] = useState("")
+    const [user_id, setUser_id] = useState({
+        "$oid": "6093244280a5c197e580c733" // currently this is fixed unless we have a signed in user
+    })
+    const [post_body, setPost_Body] = useState("")
+    const [topic_id, setTopic_id] = useState({
+        "$oid": ""
+    })
 
-    const onEditorChange = (value) => {
-        setContent(value)
+    const handleBody = (e) => {
+        console.log(e)
+        setPost_Body(e)
     }
 
-    const onFilesChange = (files) => {
-        setFiles(files)
+    const addPost = async (post_data) => {
+        console.log(post_data);
+        let resBody = JSON.stringify(post_data);
+        const res = await fetch("/posts", {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+              "Accept": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
+            body: resBody,
+        });
+        const data = await res.json();
+        console.log(data)
     }
 
-    const onSubmit = (event) => {
-        event.preventDefault();
-        setContent("")
-        console.log('submitted')
-        // if(user.userData && !user.userData.isAuth) {
-        //     return alert('Please Log in first!')
-        // }
-        // const variables = {
-        //     content: content,
-        //     userID: user.userData._id
-        // }
-        // axios.post('api/blog/createPost', variables)
-        // .then()
+    const submitPost = (e) => {
+        console.log("submitting new post");
+        e.preventDefault();
+
+        addPost({
+            title,
+            user_id,
+            post_body,
+            topic_id,
+        })
     }
-    // const quill = new Quill
+
+    const getTopicId = (url) => {
+        const topic_posts_url = url.split('/');
+        topic_posts_url.pop()
+        topic_posts_url.shift()
+        topic_posts_url.shift()
+        const topic_id_from_url = topic_posts_url[0]
+        // console.log(topic_id_from_url)
+        return topic_id_from_url
+    }
+
+    const topicIdValue = getTopicId(url)
+    const topicIdDict = {}
+    topicIdDict["$oid"] = topicIdValue.toString()
+    const setTheTopicIdState = () => setTopic_id(topicIdDict)
+
+    useEffect(() => {
+        setTheTopicIdState()
+    }, []);
 
     return (
         <div className={style.createpost}>
-            {/* <form>
-                <input placeholder="Write a new post!" type="text"></input>
-            </form> */}
-        <div>
-            Editor
+            <form onSubmit={
+                (e) => {
+
+                    submitPost(e)
+                }
+            }>
+                <label>Title</label>
+                <input placeholder="Give it a title!" type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                <ReactQuill placeholder="Please write something..." value={post_body} onChange={handleBody} />
+                <div>
+                    <input type="submit" value="Submit Post"/>
+                </div>  
+            </form>
+                <div>
+                    {post_body}
+                </div>
         </div>
-
-        <QuillEditor
-            placeholder={"Start Posting Something"}
-            onEditorChange={onEditorChange}
-            onFilesChange={onFilesChange}
-        />
-
-        <form
-        onSubmit={onSubmit}
-        >
-            <div>
-                <button>
-                    Submit
-                </button>
-            </div>
-        </form>
-
-        </div>
-
     )
 }
+
 
 export default CreatePost;

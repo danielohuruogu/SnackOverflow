@@ -22,7 +22,7 @@ const TopicsBoardItem = () => {
         <div className={style['topicsboard-container']}>
             {images.map((image, index) => (
                 <div className={style['item-container']}>
-                <Link className={style.item} 
+                <Link to="" className={style.item} 
                 
                 key={index}>
                    <img

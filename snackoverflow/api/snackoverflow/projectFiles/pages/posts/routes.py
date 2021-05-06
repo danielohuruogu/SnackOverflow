@@ -4,6 +4,7 @@ from .... import mongo
 import datetime
 from bson import ObjectId
 import json
+# from ....forms import PostForm
 
 posts = Blueprint('posts', __name__)
 
@@ -54,6 +55,11 @@ def return_comments_for_post(id):
 
 @posts.route('/posts',methods=['POST'])
 def post_post():
+
+    # form = PostForm()
+    # if form.validate_on_submit():
+    #     post_title = form.title.data
+    #     post_body = form.body.data
 
     ## Unpack Data
     all_data = request.get_json()
