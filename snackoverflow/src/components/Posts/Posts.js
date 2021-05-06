@@ -54,12 +54,12 @@ const Posts = () => {
             <CreatePost/>
 
             <div>
-                <p>All Posts for {topic.title}</p>
+                <p className={style.title}>All Posts for {topic.title}</p>
             </div>
 
             <ul>
                 {posts.map((post, key) => 
-                <li key={key}>
+                <li className={style.contentsList} key={key}>
                     <Link to={`/posts/${post._id['$oid']}/comments`}>{post.title}</Link>
                 </li>)}
             </ul>

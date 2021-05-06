@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import { Link, useRouteMatch, Switch, Route } from 'react-router-dom'
 import style from "../styles/pagesStyles/topicspage.module.scss"
+import SidePanel from "../components/SidePanel/SidePanel"
 
 const TopicsPage = () => {
     const [topics, setTopics] = useState([]);
@@ -28,15 +29,18 @@ const TopicsPage = () => {
 
     return (
         <div className={style.topicspage}>
-            <div className={style.welcome}>
-                All topics listed from A to Z
+            <div className={style.panel}>
+                <div className={style.welcome}>
+                    All topics listed from A to Z
+                </div>
+                <ul>
+                    {topics.map((topic, key) => 
+                        <li className={style.topicsList} key={key}>
+                            <Link to={`/topics/${topic._id['$oid']}/posts`}>{ topic.title }</Link>
+                        </li> )}
+                </ul>
             </div>
-            <ul>
-                {topics.map((topic, key) => 
-                    <li key={key}>
-                        <Link to={`/topics/${topic._id['$oid']}/posts`}>{ topic.title }</Link>
-                    </li> )}
-            </ul>
+            <SidePanel/>
         </div>
     )
 }

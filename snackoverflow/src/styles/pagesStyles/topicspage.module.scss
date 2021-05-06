@@ -1,9 +1,32 @@
 @import "../variables";
 @import "../mixins";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 .topicspage {
     background-color: $tea-green;
-    @include flex($dir: column wrap, $jc: start, $ai: start);
-    margin: 0px 5% 0px 5%;
-    padding: 0px 0px 78px 0px;
+    @include flex($jc: space-evenly, $ai: baseline);
+    // margin: 0px 5% 0px 5%;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0px 0px 500px 0px;
+}
+.welcome {
+    font-size: 40px;
+    text-decoration: underline;
+    font-weight: bold;
+    padding: 10px 0 10px 5px; //top right bottom left
+}
+.topicsList {
+    list-style: none; 
+    text-align: start;
+    font-size: 30px;
+    padding: 5px 0 5px 5px;
+}
+.panel {
+    //margin: auto;
+    //background-color: lightyellow;//$columbia-blue;
+    padding: 5px 10px 5px 10px; //top right bottom left
+    margin-top: 30px;
+    border-radius: 5px;
+    //box-shadow: 0px 0px 3px grey;
+    align-items: center;
 }

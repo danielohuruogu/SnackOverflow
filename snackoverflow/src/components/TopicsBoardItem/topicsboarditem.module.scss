@@ -1,66 +1,74 @@
 @import "../../styles/variables";
 @import "../../styles/mixins";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
-.topicsboard-container {
-    background-color: red;
-    // flex: 100%;
-    // width: 95%;
-    // flex: 0 0 46%;
-    //  //top right bottom left
-    // align-self: stretch;
-    // min-height: 100px;
-    // max-height: 500px;
-    @include flex; 
-    .item-container {
-        // @include flex;
-        // @include flex;
-        // flex: 1 1 500px;
-        // height: 10vh;
-        // height: 100%;
-        flex: 1 1 25%;
-        background-color: peachpuff;
-        padding: 5px 5px 5px 5px;
-            // width: 100px;
-            // height: 100px;
-            // flex-grow: 1;
-            // object-fit: cover;
-            // width: 100%;
-            height: 100%;
-        // align-content: stretch;
-        // max-height: 500px;
-        // object-fit: cover;
-        // height: 100%;
-        .item {
-            // background-color: cyan;
-            // flex: 1 1 100%;
-            // display: block;
-            // @include flex;
-            // max-width: 100px;
-            // max-height: 100px;
-            // align-self: stretch;
-            width: 100%;
-            height: 100%;
-            // object-fit: fill;
-            // min-height: 100px;
-            // object-fit: cover;
-            img {
-                // flex: 1 1 100%;
-                // width: 100px;
-                // height: 10rem;
-                // flex: 1;
-                // height: 100%;
-                // min-width: 100px;
-                min-height: 100px;
-                width: 100%;
-                // flex: 1;
-                // width: 100%;
-                // flex: 100%;
-                object-fit: cover;
-                // flex: 1;
-                
-            }
-        }
+
+  $imgWidth: 190px;
+  $gridSize: ($imgWidth + 5px) ($imgWidth + 5px) ($imgWidth + 5px);
+
+  .item {
+    width: 32%;
+    padding-bottom: 32%; /* Same as width, sets height */
+    margin-bottom: 2%; /* (100-32*3)/2 */
+    position: relative;
+  }
+
+  .container {
+    position: relative;
+  }
+
+  img {
+    opacity: 1;
+    display: block;
+    width: $imgWidth;
+    height: auto;
+    object-fit: cover;
+    padding: 2px 5px;
+    border-radius: 8px;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .container:hover img {
+    opacity: 0.5;
+  }
+  
+  .container:hover .middle {
+    opacity: 1;
+  }
+  
+  .text {
+    background-color: #043539;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    padding: 12px 24px;
+  }
+
+  .gameboard {
+    display: grid;
+    grid-template-rows: $gridSize;
+    grid-template-columns: $gridSize;
+    margin-bottom: 40px;
     }
 
-
-}
+    .box {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #AAA;
+    }
