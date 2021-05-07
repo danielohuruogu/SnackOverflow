@@ -12,7 +12,7 @@ class Topic(mongo.Document):
     date_created = DateTimeField(default=datetime.datetime.utcnow)
 
     # to reference the posts and stuff, this may need to change quite a bit
-    posts_id = ListField(IntField()) # should that be an intfield?
+    posts_id = ListField(ReferenceField('Post'))
 
     meta = {'collection': 'topics'}
 
@@ -30,7 +30,6 @@ class Comment(mongo.Document):
     popularity = IntField(default=0)
 
     meta = {'collection': 'comments'}
-
 
 class User(UserMixin, mongo.Document):
     username = StringField(required=True)
