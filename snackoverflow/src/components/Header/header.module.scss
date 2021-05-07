@@ -4,13 +4,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 .header {
-    // background-color: $tea-green;
+    background-color: lightyellow;
     // font-size: 1em;
         // width: 75%;
     // @include flex;
     // @include flex;
     .top {
-        @include flex($dir: row nowrap, $jc: start, $ai: center);
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        // justify-content: space-evenly;
+        // flex-direction: row;
+        // @include flex($dir: row nowrap, $jc: start, $ai: center);
         // align-items: start;
         // width: 100%;
         // flex: 0 0 100%;
@@ -23,14 +28,38 @@
         .mytitle {
             // padding-left: 10px;
             white-space: nowrap;
-
+            padding-bottom: 1px;
             font-family: 'Rubik', sans-serif;
             // align-self: start;
             // justify-self: start;
             // width: 95%;
             // flex: 0 0 95%;
         }
+        .searchbar {
+            padding-bottom: 6px;
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            margin-left: auto;
+        }
+        .searchbar button {
+            padding: 6px 10px;
+            background: #ddd;
+            font-size: 17px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .searchbar input[type=text] {
+            float: right;
+            padding: 6px;
+            border: none;
+            margin-top: 8px;
+            margin-right: 16px;
+            font-size: 17px;
+          }
     }
+
+    
 
 
     // div {

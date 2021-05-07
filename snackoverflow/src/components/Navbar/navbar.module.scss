@@ -1,14 +1,17 @@
 @import "../../styles/variables";
 @import "../../styles/mixins";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 .navbar {
     @include flex;
-    background-color: $rich-black;
+        background-color: $rich-black;
+        // display: flex;
+        // flex-direction: row;
+        // justify-content: space-between;
             // align-items: start;
             // justify-content: space-around;
             
     ul {
-        // background-color: pink;
         list-style: none;
                     // flex: 0 0 500px;
         // width: 90%;
@@ -18,12 +21,17 @@
 
             // width: 10%;
             color: white;
+            font-family: 'Montserrat', sans-serif;
+
+            // display: flex;
+            // flex-direction: row;
+            // justify-content: space-between;
             // background-color: cyan;
             // width: 15%;
             flex: 1;
             padding: 5px 10px 5px 10px;
             align-self: center;
-            border-radius: 5px;
+            // border-radius: 5px;
 
             // @include flex;
             // flex-wrap: nowrap;

@@ -20,18 +20,80 @@ const images = [img_crisps, img_candies, img_biscuits, img_cakes, img_popcorns, 
 const TopicsBoardItem = () => {
     return (
         <div className={style['topicsboard-container']}>
-            {images.map((image, index) => (
-                <div className={style['item-container']}>
-                <Link to="" className={style.item} 
-                
-                key={index}>
-                   <img
-                    
-                    src={image} alt=""/> 
-                </Link>
+            <div className={style.gameboard}>
+                <div className={style.container}>
+                    <div className={style.box}>
+                        <img src={img_crisps} alt="Crisps"></img>
+                        <Link to='/' class={style.middle}>
+                            <div class={style.text}>Crisps</div>
+                        </Link>
+                    </div>
                 </div>
-            ))}
-            
+                <div className={style.container}>
+                    <div className={style.box}>
+                        <img src={img_candies} alt="Candies"></img>
+                        <Link to='/' class={style.middle}>
+                            <div class={style.text}>Candies</div>
+                        </Link>
+                    </div>
+                </div>
+                <div className={style.container}>
+                    <div className={style.box}>
+                        <img src={img_biscuits} alt="Biscuits"></img>
+                        <Link to='/' class={style.middle}>
+                            <div class={style.text}>Biscuits</div>
+                        </Link>
+                    </div>
+                </div>
+                <div className={style.container}>
+                    <div className={style.box}>
+                        <img src={img_cakes} alt="Cakes"></img>
+                        <Link to='/' class={style.middle}>
+                            <div class={style.text}>Cakes</div>
+                        </Link>
+                    </div>
+                </div>
+                <div className={style.container}>
+                    <div className={style.box}>
+                        <img src={img_popcorns} alt="Popcorn"></img>
+                        <Link to='/' class={style.middle}>
+                            <div class={style.text}>Popcorn</div>
+                        </Link>
+                    </div>
+                </div>
+                <div className={style.container}>
+                    <div className={style.box}>
+                        <img src={img_chocolates} alt="Chocolates"></img>
+                        <Link to='/' class={style.middle}>
+                            <div class={style.text}>Chocolates</div>
+                        </Link>
+                    </div>
+                </div>
+                <div className={style.container}>
+                    <div className={style.box}>
+                        <img src={img_nutsandseeds} alt="Nuts and Seeds"></img>
+                        <Link to='/' class={style.middle}>
+                            <div class={style.text}>Nuts and Seeds</div>
+                        </Link>
+                    </div>
+                </div>
+                <div className={style.container}>
+                    <div className={style.box}>
+                        <img src={img_shreds} alt="Shreds"></img>
+                        <Link to='/' class={style.middle}>
+                            <div class={style.text}>Shreds</div>
+                        </Link>
+                    </div>
+                </div>
+                <div className={style.container}>
+                    <div className={style.box}>
+                        <img src={img_chewinggums} alt="Chewing Gum"></img>
+                        <Link to='/' class={style.middle}>
+                            <div class={style.text}>Chewing Gum</div>
+                        </Link>
+                    </div>
+                </div>
+            </div>            
         </div>
     )
 }

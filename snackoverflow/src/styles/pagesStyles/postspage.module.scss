@@ -1,10 +1,11 @@
 @import "../variables";
 @import "../mixins";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 .postspage {
     background-color: $tea-green;
-    @include flex;
-    margin: 0px 5% 0px 5%;
+    font-family: 'Montserrat', sans-serif;
+    @include flex($jc: space-evenly, $ai: baseline);
     .desc {
         flex: 0 0 100%;
     }

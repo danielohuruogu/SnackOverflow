@@ -50,14 +50,13 @@ const Comments = () => {
     return (
         <div className={style.comments}>
             <div>
-                <p>{post.title}</p>
+                <p className={style.title}>{post.title}</p>
                 <p>{post.post_body}</p>      
             </div>
-            <div>----------</div>
             <div>
-                <p>All Comments</p>
+                <p className={style.subtitles}>All Comments:</p>
                 <ul>
-                    {comments.map((comment, key) => <li key={key}>{comment.text}</li>)}
+                    {comments.map((comment, key) => <li className={style.contentsList} key={key}>{comment.text}</li>)}
                 </ul>
             </div>
                  
