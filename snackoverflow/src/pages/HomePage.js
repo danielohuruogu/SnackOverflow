@@ -9,7 +9,9 @@ const HomePage = () => {
                 <p>Welcome to Snack Overflow! Home of snack enthusiasts to discuss all things snacks related.</p>
             </div>
             <TopicsBoard/>
+            <div className={style.separator}>
             <SidePanel/>
+            </div>
 
         </div>
     )

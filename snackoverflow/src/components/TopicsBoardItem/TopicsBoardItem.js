@@ -20,17 +20,6 @@ const images = [img_crisps, img_candies, img_biscuits, img_cakes, img_popcorns, 
 const TopicsBoardItem = () => {
     return (
         <div>
-            {/* {images.map((image, index) => (
-                //<div className={style['item-container']}>
-                <Link className={style.item} 
-                
-                key={index}>
-                   <img
-                    
-                    src={image} alt=""/> 
-                </Link>
-                //</div>
-            ))} */}
             <div className={style.gameboard}>
                 <div className={style.container}>
                     <div className={style.box}>

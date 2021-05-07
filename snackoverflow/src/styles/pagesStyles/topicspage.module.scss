@@ -5,9 +5,7 @@
 .topicspage {
     background-color: $tea-green;
     @include flex($jc: space-evenly, $ai: baseline);
-    // margin: 0px 5% 0px 5%;
     font-family: 'Montserrat', sans-serif;
-    padding: 0px 0px 500px 0px;
 }
 .welcome {
     font-size: 40px;
