@@ -85,25 +85,26 @@ def create_user():
 
 # ################# NOT TESTED YET ###################
 # method with flask-login - still working on it
-@users.route('/login')
-def login():
-    return render_template('login.html')
+# @users.route('/login')
+# def login():
+#     return render_template('login.html')
 
 @users.route('/login', methods=['POST'])
 def login_to_site():
-    email = request.form.get("email")
+    email = request.body.get("email")
 
-    password = request.form.get("password")
+    password = request.get.get("password")
 
     check_user = User.objects.get(email=email) # finding user in database by email
 
     if check_user is None:
-
         flash("User doesn't exist. Please try again")
         return redirect(url_for('.login'))
+        # need to send something back to React instead
 
     login_user(check_user) # log the user in if passwords match
     return redirect(url_for('.profile'))
+    # again, need to send something back to React - unsure of what, though
 
 
 #### to display an account - NOT TESTED ####
@@ -111,7 +112,7 @@ def login_to_site():
 @users.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html', name=current_user.name)
+    return render_template('profile.html', name=current_user.username)
 
 
 @users.route('/logout')

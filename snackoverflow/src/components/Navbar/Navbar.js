@@ -64,9 +64,9 @@ const Navbar = () => {
                 onMouseLeave={() => {onMouseLeave(3)}}>
                     Brands {dropdown3 && <SnacksByBrandDropdown />}
                 </li>
-                <li className={style.navitem}>
+                {/* <li className={style.navitem}>
                     <Link to='/register' className={style.navlink}>Register</Link>
-                </li>
+                </li> */}
                 <li className={style.navitem}>
                     <Link to='/login' className={style.navlink}>Login</Link>
                 </li>
