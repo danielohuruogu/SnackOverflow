@@ -85,9 +85,9 @@ def create_user():
 
 # ################# NOT TESTED YET ###################
 # method with flask-login - still working on it
-# @users.route('/login')
-# def login():
-#     return render_template('login.html')
+@users.route('/login')
+def login():
+    return render_template('login.html')
 
 @users.route('/login', methods=['POST'])
 def login_to_site():

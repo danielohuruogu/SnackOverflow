@@ -88,6 +88,24 @@ export default function InputAdornments({
 		</InputAdornment>
 	);
 
+	const useStyles = makeStyles((theme) => ({
+		root: {
+			display: 'flex',
+			flexWrap: 'wrap',
+		},
+		margin: {
+			marginLeft: theme.spacing(3),
+			marginTop: theme.spacing(1),
+			marginBottom: theme.spacing(1),
+		},
+		textField: {
+			width: '40ch',
+		},
+		button: {
+			margin: theme.spacing(2),
+		},
+	}));
+	
 	const classes = useStyles();
 
 	return (
