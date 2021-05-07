@@ -1,11 +1,36 @@
 @import "../../styles/variables";
 @import "../../styles/mixins";
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 .createpost {
     // background-color: grey;
-
+    font-family: 'Montserrat', sans-serif;
 }
 
 .ql-editor {
     background-color: blue;
+}
+
+.title {
+    margin: 10px;
+    font-size: 25px;
+}
+.titleInput {
+    font-family: 'Montserrat', sans-serif;
+    width: 89%;
+    padding: 8px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+.button {
+    margin: 10px 0;
+    background-color: $rich-black; /* Green */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
 }

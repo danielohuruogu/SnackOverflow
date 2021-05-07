@@ -52,22 +52,23 @@ const Posts = () => {
     }
     console.log(posts)
     return (
-        <div className={style.posts}>
-            
-            <CreatePost/>
-
-            <div>
-                <p className={style.title}>All Posts for {topic.title}</p>
+        <div>
+            <div className={style.createPosts}>
+                <CreatePost/>
             </div>
+                <div className={style.posts}>
+                    <div>
+                        <p className={style.title}>All Posts for {topic.title}</p>
+                    </div>
 
-            <ul>
-                {posts.map((post, key) => 
-                <li className={style.contentsList} key={key}>
-                    <Link to={`/posts/${post._id['$oid']}/comments`}>{post.title}</Link>
-                </li>)}
-            </ul>
+                    <ul>
+                        {posts.map((post, key) => 
+                        <li className={style.contentsList} key={key}>
+                            <Link to={`/posts/${post._id['$oid']}/comments`}>{post.title}</Link>
+                        </li>)}
+                    </ul>
+                </div>
         </div>
-
             // <Link to={`/topics/${topic._id['$oid']}/posts`}>{ topic.title }</Link>
     )
 }

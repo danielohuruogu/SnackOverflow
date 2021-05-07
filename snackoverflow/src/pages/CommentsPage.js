@@ -5,10 +5,7 @@ import style from "../styles/pagesStyles/commentspage.module.scss"
 const CommentsPage = () => {
     return (
         <div className={style.commentspage}>
-            <div className={style.desc}>
-                <p>this is the comments page</p>
-            </div>
-            <Comments/>
+            <Comments className={style.separator}/>
             <SidePanel/>
         </div>
     )
