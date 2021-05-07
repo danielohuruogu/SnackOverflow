@@ -54,11 +54,13 @@ def update_topic(id):
 def return_posts_for_topic(id):
 
     ObjId = ObjectId(id)
+    print('topic:',id)
+    # topic_id = list(all_data['post_id'].values())[0]
     topic = Topic.objects.get(id=ObjId)
 
     posts = []
     for post in topic.posts_id:
-        print(post)
+        print('post:',post.id)
         post_data = json.loads(get_one_post(post.id).get_data())
         posts.append(post_data)
 

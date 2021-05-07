@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useParams } from 'react'
 import { Link, useRouteMatch, Switch, Route } from 'react-router-dom'
 import style from './comments.module.scss'
+import CreateComment from '../CreateComment/CreateComment';
 
 const Comments = () => {
     const { url, path } = useRouteMatch();
@@ -11,6 +12,7 @@ const Comments = () => {
         const fetchFromApi = async () => {
             const commentsFromServer = await fetchComments()
             setComments(commentsFromServer)
+            console.log(commentsFromServer)
             const postFromServer = await fetchChosenPost()
             setPost(postFromServer)
         };
@@ -62,6 +64,8 @@ const Comments = () => {
                     {comments.map((comment, key) => <li className={style.contentsList} key={key}>{comment.text}</li>)}
                 </ul>
             </div>
+
+            <CreateComment/>
                  
         </div>
     )
