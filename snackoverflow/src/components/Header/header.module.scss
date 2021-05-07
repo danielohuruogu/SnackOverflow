@@ -1,24 +1,13 @@
 @import "../../styles/variables";
 @import "../../styles/mixins";
-
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 .header {
     background-color: lightyellow;
-    // font-size: 1em;
-        // width: 75%;
-    // @include flex;
-    // @include flex;
     .top {
         display: flex;
         flex-direction: row;
         align-items: flex-end;
-        // justify-content: space-evenly;
-        // flex-direction: row;
-        // @include flex($dir: row nowrap, $jc: start, $ai: center);
-        // align-items: start;
-        // width: 100%;
-        // flex: 0 0 100%;
         .mysvg {
             // align-self: start;
             // justify-self: start;
@@ -26,14 +15,9 @@
             // flex: 0 0 5%;
         }
         .mytitle {
-            // padding-left: 10px;
             white-space: nowrap;
             padding-bottom: 1px;
             font-family: 'Rubik', sans-serif;
-            // align-self: start;
-            // justify-self: start;
-            // width: 95%;
-            // flex: 0 0 95%;
         }
         .searchbar {
             padding-bottom: 6px;
@@ -44,7 +28,7 @@
         }
         .searchbar button {
             padding: 6px 10px;
-            background: #ddd;
+            background: #c4dbc1;
             font-size: 17px;
             border-radius: 5px;
             cursor: pointer;
@@ -56,33 +40,6 @@
             margin-top: 8px;
             margin-right: 16px;
             font-size: 17px;
-          }
+        }
     }
-
-    
-
-
-    // div {
-    //     @include flex;
-    //     // flex: 0 0 100%;
-    //     width: 100%;
-    //     height: 40px;
-    //     svg {
-    //         // flex: 0 0 5%;
-    //         width: 5%;
-    //         // height: 10px;
-    //     }
-    //     div {
-    //         // flex: 0 0 95%;
-    //         width: 95%;
-    //         // max-height: 1px;
-    //         h1 {
-    //         // height: 100%;
-    //         // font-size: small;
-    //         height: 1vh;
-    //     }  
-    //     }
-
-    // }
-
 }

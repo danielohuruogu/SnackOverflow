@@ -79,11 +79,11 @@ const CreatePost = () => {
                     submitPost(e)
                 }
             }>
-                <label>Title</label>
-                <input placeholder="Give it a title!" type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                <label className={style.title}>Title:</label>
+                <input className={style.titleInput} placeholder="Give it a title!" type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
                 <ReactQuill placeholder="Please write something..." value={post_body} onChange={handleBody} />
                 <div>
-                    <input type="submit" value="Submit Post"/>
+                    <input className={style.button} type="submit" value="Submit Post"/>
                 </div>  
             </form>
                 <div>
