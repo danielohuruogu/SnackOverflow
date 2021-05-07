@@ -9,8 +9,8 @@ import style from "../styles/pagesStyles/loginpage.module.scss"
 const LoginPage = () => {
     return (
         <div>
-            <Registration/>
             <Login/>
+            <Registration/>
         </div>
     )
 }
