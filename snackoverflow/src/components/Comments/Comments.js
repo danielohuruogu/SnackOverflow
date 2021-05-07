@@ -51,7 +51,10 @@ const Comments = () => {
         <div className={style.comments}>
             <div>
                 <p className={style.title}>{post.title}</p>
-                <p>{post.post_body}</p>      
+
+                <p dangerouslySetInnerHTML={{
+                    __html: post.post_body
+                }}></p>      
             </div>
             <div>
                 <p className={style.subtitles}>All Comments:</p>
