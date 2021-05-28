@@ -1,4 +1,5 @@
 # SnackOverflow
+
 Fullstack forum-based app to discuss and compare the best snacks known to man
 
 Final Capstone Project as part of the Bright Network Technology Academy
